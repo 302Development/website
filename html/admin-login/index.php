@@ -37,6 +37,7 @@
         <div id="admin-component-box" class="component-box">
             <div class="col-md-12">
                 <div class="container-fluid">
+                    <?php if (isset($_GET['fail'])) echo '<div class="has-error">Incorrect login.</div>'; ?>
 
                     <!-- admin login form card -->
                         <div id="admin-login-card" class="pmd-card pmd-card-media-inline pmd-card-default pmd-z-depth">
@@ -48,14 +49,15 @@
                             <!-- card body --> 
                                 <div class="pmd-card-body"> 
                                             <!-- start form -->
-                                                <form class="form-horizontal">
+                                                <form class="form-horizontal" action="/html-admin/" method="POST">
+                                                    <input type="hidden" name="Login">
                                                     
                                                     <!-- start user name entry -->
                                                         <div class="form-group pmd-textfield pmd-textfield-floating-label form-group-lg">
                                                             <label for="Username" class="control-label pmd-input-group-label">Username</label>
                                                             <div class="input-group">
                                                                 <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">perm_identity</i></div>
-                                                                <input type="text" class="form-control form-group-lg" id="Username">
+                                                                <input type="text" class="form-control form-group-lg" name="Username" id="Username" required>
                                                             </div>
                                                         </div>
                                                     <!-- end user name entry -->
@@ -65,7 +67,7 @@
                                                             <label for="Password" class="control-label pmd-input-group-label">Password</label>
                                                             <div class="input-group">
                                                                 <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">https</i></div>
-                                                                <input type="password" class="form-control form-group-lg" id="Password">
+                                                                <input type="password" class="form-control form-group-lg" name="Password" id="Password" required>
                                                             </div>
                                                         </div>
                                                     <!-- end password entry -->
@@ -76,8 +78,7 @@
                                                     These are set to <a> links for testing purposes. 
                                                         <button> buttons can be used is needed once the form goes live. 
                                                     -->
-                                                    <a href="/html-admin/admin-dashboard.html" class="btn btn-lg pmd-btn-raised btn-primary btn-block pmd-ripple-effect" type="button" >Login</a>
-
+                                                    <input class="btn btn-lg pmd-btn-raised btn-primary btn-block pmd-ripple-effect" type="submit" value="Login">
                                                     <!-- cancel button -->
                                                     <a href="/index.html" class="btn btn-lg pmd-btn-flat btn-primary btn-block pmd-ripple-effect" type="button">Cancel</a>
 
@@ -104,7 +105,7 @@
             <ul>
                 <li><a href="/index.html">Data Center Dashboard</a></li>
                 <li><a href="http://www.murdoch.edu.au/">Main Murdoch Website</a></li>
-                <!-- <li><a href="/html/admin.html">Admin Login</a></li> -->
+                <!-- <li><a href="/html/admin-login/">Admin Login</a></li> -->
             </ul>
         </footer>
     <!-- end footer -->   

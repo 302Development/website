@@ -1,3 +1,27 @@
+<?php
+
+    if ( !isset($_POST['Login']) || !isset($_POST['Username']) || !isset($_POST['Password']) ) {
+        header("Location: /html/admin-login/?fail");
+        die();
+    }
+
+    $USERNAME_CHECK = "admin";
+    $PASSWORD_CHECK = "$2y$10$8OKna.EwyI.97nULT8CBQeAvgVeVqyTpnQ4DHlFnpwZwGAoxsZLkm";
+
+    /*  
+        Generating the above hash:
+        $password = password_hash($_POST['Password'], PASSWORD_DEFAULT);
+    */
+
+    $username = $_POST['Username'];
+    $password = $_POST['Password'];
+    if (strcmp($username, $USERNAME_CHECK) !== 0 || !password_verify($password, $PASSWORD_CHECK)){
+        header("Location: /html/admin-login/?fail");
+        die();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

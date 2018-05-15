@@ -49,7 +49,70 @@
 
     <!-- start layout tab -->
                 <div role="tabpanel" class="tab-pane active" id="layout-fixed">
-                    Layout Tab
+                    <!-- start accordian -->
+                        <div class="panel-group pmd-accordion" id="layout-accordian" role="tablist" aria-multiselectable="true" > 
+                        
+                        <!-- start network panel -->    
+                            <div class="panel panel-default"> 
+                                <div class="panel-heading" role="tab" id="network-heading">
+                                    <h4 class="panel-title"> 
+                                        <a data-toggle="collapse" data-parent="#layout-accordian" href="#network-collapse" aria-expanded="true" aria-controls="network-collapse" data-expandable="false"> Network Page <i class="material-icons md-dark pmd-sm pmd-accordion-arrow">keyboard_arrow_down</i></a>
+                                    </h4>
+                                </div>
+                                <div id="network-collapse" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="network-heading">
+                                    <div class="panel-body">
+                                        Network Accordian content
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- end network panel -->
+
+                        <!-- start performance panel -->
+                            <div class="panel panel-default"> 
+                                <div class="panel-heading" role="tab" id="performance-heading">
+                                    <h4 class="panel-title"> 
+                                        <a data-toggle="collapse" data-parent="#layout-accordian" href="#performance-collapse" aria-expanded="false" aria-controls="performance-collapse"  data-expandable="false"> Performance Page <i class="material-icons md-dark pmd-sm pmd-accordion-arrow">keyboard_arrow_down</i></a>
+                                    </h4>
+                                </div>
+                                <div id="performance-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="performance-heading">
+                                    <div class="panel-body">
+
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- end performance panel -->
+
+                        <!-- start power panel -->
+                            <div class="panel panel-default"> 
+                                <div class="panel-heading" role="tab" id="power-heading">
+                                    <h4 class="panel-title"> 
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#layout-accordian" href="#power-collapse" aria-expanded="false" aria-controls="power-collapse"  data-expandable="false"> Power Page <i class="material-icons md-dark pmd-sm pmd-accordion-arrow">keyboard_arrow_down</i></a>
+                                    </h4>
+                                </div>
+                                <div id="power-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="power-heading">
+                                    <div class="panel-body">
+
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- end power panel -->
+
+                        <!-- start environment panel -->
+                            <div class="panel panel-default"> 
+                                    <div class="panel-heading" role="tab" id="environment-heading">
+                                        <h4 class="panel-title"> 
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#layout-accordian" href="#environment-collapse" aria-expanded="false" aria-controls="environment-collapse"  data-expandable="false"> Environment Page <i class="material-icons md-dark pmd-sm pmd-accordion-arrow">keyboard_arrow_down</i></a>
+                                        </h4>
+                                    </div>
+                                    <div id="environment-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="environment-heading">
+                                        <div class="panel-body">
+
+                                        </div>
+                                    </div>
+                                </div>
+                        <!-- end power panel -->
+                        </div> 
+                    <!-- home accordian -->
                 </div><!-- /.tab-panel -->
     <!-- end layout tab -->
 

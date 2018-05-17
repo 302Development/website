@@ -185,7 +185,7 @@ a{ color:rgba(0, 0, 0, 0.84); text-decoration:none; outline:none;}
 }
 
 .mdc-footer{
-	position: absolute;
+	position: fixed;
 	bottom: 0px;
 	background-color:#060000;
 	width:100%;
@@ -257,7 +257,9 @@ div#about-card{
 	text-decoration: none;
 }
 
-
+.pmd-card#admin-status-card{
+	z-index: 1;
+}
 
 
 

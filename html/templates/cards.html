@@ -1,0 +1,25 @@
+<div class="col-md-3 col-md-4 col-sm-6 col-xs-12">
+    <div class="pmd-card pmd-card-default pmd-z-depth">
+        <!-- card header -->
+        <div class="pmd-card-title">
+            <h2 class="pmd-card-title-text">{{title}}</h2>
+            <span class="pmd-card-subtitle-text">{{subtitle}}</span>	
+        </div>
+        <!-- card media -->
+        <div class="pmd-card-media">
+            <div class="mdc-gauge">
+            <!-- radial gauge -->
+            <canvas data-type="radial-gauge" data-value="0" data-units="{{dataunit}}" data-title="{{datatitle}}" data-major-ticks="{{tickformat}}" data-minor-ticks="{{minortick}}" data-width="400" data-height="400" data-bar-width="10" data-bar-shadow="0" data-border-shadow-width="0" data-border-inner-width="0" data-border-outer-width="0" data-border-middle-width="0" data-color-bar-progress="rgba(50,50,200,1)" data-color-bar="#9999" data-color-title="rgba(50,50,200,1)" data-color-needle="rgba(50,50,200,1)" data-color-needle-end="rgba(50,50,200,1)" data-color-numbers="rgba(50,50,200,1)" data-highlights="false" data-value-box-border-radius="0" data-value-box-stroke="0" data-value-text-shadow="0" data-color-value-box-shadow="0" data-color-units="rgba(50,50,200,1)" data-color-value-text="rgba(50,50,200,1)" data-color-major-ticks="rgba(50,50,200,1)" data-needle-type="line" data-needle-width="1" data-needle-circle-size="5" data-needle-circle-inner="false" data-color-value-box-background="transparent" data-color-needle-circle-outer="rgba(50,50,200,1)" data-color-needle-circle-outer-end="rgba(50,50,200,1)" data-animation-rule="linear" data-stroke-ticks="0" data-value-int="2" data-value-dec="1" width="400" height="400" style="width: 400px; height: 400px;">
+            </canvas>
+            </div>
+        </div>
+        <!-- card actions -->
+        <div class="pmd-card-actions">
+            <span>
+                <button onclick="animateGauges()" type="button" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary"><i class="material-icons pmd-sm">play_arrow</i></button>
+                <button onclick="stopGaugesAnimation()" type="button" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary"><i class="material-icons pmd-sm">stop</i></button>
+                <button type="button" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary"><i class="material-icons pmd-sm">fullscreen</i></button>
+            </span>
+        </div>
+    </div>
+</div>

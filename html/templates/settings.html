@@ -1,0 +1,54 @@
+<div class="card" style="width: 50%;">
+	<h2>Card #{{count}}</h3>
+	<form action="#" method="post">
+		<input type="hidden" name="id" value="{{id}}">
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">
+				<div class="form-group">
+					<label>Title: </label>
+					<input type="text" class="form-control" name="title" placeholder="{{title}}">
+				</div>			
+			</li>
+
+			<li class="list-group-item">
+				<div class="form-group">
+					<label>Sub-Title: </label>
+					<input type="text" class="form-control" name="subtitle" placeholder="{{subtitle}}">
+				</div>			
+			</li>
+
+			<li class="list-group-item">
+				<div class="form-group">
+					<label>Data Title: </label>
+					<input type="text" class="form-control" name="datatitle" placeholder="{{datatitle}}">
+				</div>			
+			</li>
+
+			<li class="list-group-item">
+				<div class="form-group">
+					<label>Data Unit: </label>
+					<input type="text" class="form-control" name="dataunit" placeholder="{{dataunit}}">
+				</div>			
+			</li>
+
+			<li class="list-group-item">
+				<div class="form-group">
+					<label>Minor Tick: </label>
+					<input type="text" class="form-control" name="minortick" placeholder="{{minortick}}">
+				</div>			
+			</li>
+
+			<li class="list-group-item">
+				<div class="form-group">
+					<label>Tick Format: </label>
+					<input type="text" class="form-control" name="tickformat" placeholder="{{tickformat}}">
+				</div>			
+			</li>
+			<li class="list-group-item">
+				<input type="submit" class="btn btn-primary" name="action" value="Update" />
+				<input type="submit" class="btn btn-primary" name="action" value="Delete" />
+			</li>
+		</ul>		
+	</form>
+</div>
+<br />

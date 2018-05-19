@@ -1,3 +1,12 @@
+<?php
+    include_once($_SERVER['DOCUMENT_ROOT']."/php/admin.php");
+
+    if (checkSession()) {
+        redirectDashboard();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +46,12 @@
         <div id="admin-component-box" class="component-box">
             <div class="col-md-12">
                 <div class="container-fluid">
-                    <?php if (isset($_GET['fail'])) echo '<div class="has-error">Incorrect login.</div>'; ?>
+                    <?php 
+                        if (isset($_GET['incorrect'])) 
+                            echo '<div class="has-error">Incorrect login.</div>';
+                        else if (isset($_GET['timeout'])) 
+                            echo '<div class="has-error">Your session timed out.</div>';
+                    ?>
 
                     <!-- admin login form card -->
                         <div id="admin-login-card" class="pmd-card pmd-card-media-inline pmd-card-default pmd-z-depth">
@@ -49,7 +63,7 @@
                             <!-- card body --> 
                                 <div class="pmd-card-body"> 
                                             <!-- start form -->
-                                                <form class="form-horizontal" action="/html-admin/" method="POST">
+                                                <form class="form-horizontal" action="/admin/" method="POST">
                                                     <input type="hidden" name="Login">
                                                     
                                                     <!-- start user name entry -->
@@ -80,7 +94,7 @@
                                                     -->
                                                     <input class="btn btn-lg pmd-btn-raised btn-primary btn-block pmd-ripple-effect" type="submit" value="Login">
                                                     <!-- cancel button -->
-                                                    <a href="/index.html" class="btn btn-lg pmd-btn-flat btn-primary btn-block pmd-ripple-effect" type="button">Cancel</a>
+                                                    <a href="/" class="btn btn-lg pmd-btn-flat btn-primary btn-block pmd-ripple-effect" type="button">Cancel</a>
 
                                                 </form>
                                             <!-- end form -->
@@ -103,7 +117,7 @@
     <!-- start footer -->
         <footer class="mdc-footer">
             <ul>
-                <li><a href="/index.html">Data Center Dashboard</a></li>
+                <li><a href="/">Data Center Dashboard</a></li>
                 <li><a href="http://www.murdoch.edu.au/">Main Murdoch Website</a></li>
                 <!-- <li><a href="/html/admin-login/">Admin Login</a></li> -->
             </ul>

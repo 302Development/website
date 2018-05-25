@@ -37,10 +37,10 @@ CREATE TABLE `cards` (
 --
 
 INSERT INTO `cards` (`id`, `title`, `subtitle`, `datatitle`, `dataunit`, `minortick`, `tickformat`, `type`) VALUES
-(1, 'Network Card #1', 'Download', 'Download', 'MB/s', 1, '0,20,30,40,50,60,70,80,90,100', 1),
-(2, 'Network Card #2', 'Download', 'Download', 'MB/s', 1, '0,20,30,40,50,60,70,80,90,100', 1),
-(3, 'Network Card #3', 'Download', 'Download', 'MB/s', 1, '0,20,30,40,50,60,70,80,90,100', 1),
-(4, 'Network Card #4', 'Download', 'Download', 'MB/s', 1, '0,20,30,40,50,60,70,80,90,100', 1),
+(1, 'Network Card #1', 'Download', 'Download', 'Mb/s', 1, '0,20,30,40,50,60,70,80,90,100', 1),
+(2, 'Network Card #2', 'Download', 'Download', 'Mb/s', 1, '0,20,30,40,50,60,70,80,90,100', 1),
+(3, 'Network Card #3', 'Download', 'Download', 'Mb/s', 1, '0,20,30,40,50,60,70,80,90,100', 1),
+(4, 'Network Card #4', 'Download', 'Download', 'Mb/s', 1, '0,20,30,40,50,60,70,80,90,100', 1),
 (5, 'Performance Card #1', 'Performance', 'Performance', 'MB/s', 1, '0,20,30,40,50,60,70,80,90,100', 2),
 (6, 'Performance Card #2', 'Performance', 'Performance', 'MB/s', 1, '0,20,30,40,50,60,70,80,90,100', 2),
 (7, 'Performance Card #3', 'Performance', 'Performance', 'MB/s', 1, '0,20,30,40,50,60,70,80,90,100', 2),

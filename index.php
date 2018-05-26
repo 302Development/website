@@ -112,48 +112,10 @@
             <script src="assets/js/bootstrap.min.js"></script>
             <script src="assets/js/gauge.min.js"></script>
             <script src="assets/js/propeller.min.js"></script>
+            <script src="assets/js/pullData.js"></script>
         <!-- /external scripts -->
 
-        <!-- start random testing data-->
-            <script>
-                if (!Array.prototype.forEach) {
-                    Array.prototype.forEach = function(cb) {
-                        var i = 0,
-                            s = this.length;
-                        for (; i < s; i++) {
-                            cb && cb(this[i], i, this);
-                        }
-                    }
-                }
-                document.fonts && document.fonts.forEach(function(font) {
-                    font.loaded.then(function() {
-                        if (font.family.match(/Led/)) {
-                            document.gauges.forEach(function(gauge) {
-                                gauge.update();
-                            });
-                        }
-                    });
-                });
-
-                var timers = [];
-
-                function animateGauges() {
-                    document.gauges.forEach(function(gauge) {
-                        timers.push(setInterval(function() {
-                            var min = gauge.options.minValue - 0;
-                            var max = gauge.options.maxValue + 0;
-
-                            gauge.value = min + Math.random() * (max - min);
-                        }, gauge.animation.duration + 500));
-                    });
-                }
-
-                function stopGaugesAnimation() {
-                    timers.forEach(function(timer) {
-                        clearInterval(timer);
-                    });
-                }
-            </script>
+        <!-- start random testing data (REMOVED)-->
         <!-- end random testing data -->
 
     <!-- end scripts -->

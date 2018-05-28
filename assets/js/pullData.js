@@ -4,111 +4,208 @@ var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
 let DashboardData;
 if (this.readyState == 4 && this.status == 200) {
-	//alert (this.responseText);
-	test = JSON.parse(this.responseText);
-	//alert(test["devices"]["0"]["type"]);
+
+	DashboardData = JSON.parse(this.responseText);
+
 	count = 0;
         
 
-	for ( count in test["devices"]){
+	for ( count in DashboardData["devices"]){
 	
-	if ((test["devices"][count]["type"]) === "network") {
-		//alert("test");
-		var inMbs = parseFloat(test["devices"][count]["Mb/sIn"]);
-		var inMbsID = (test["devices"][count]["Mb/sInID"]);
-		var outMbs = parseFloat(test["devices"][count]["Mb/sOut"]);
-		var outMbsID = (test["devices"][count]["Mb/sOutID"]);
-		//alert(inMbsID);
+	if ((DashboardData["devices"][count]["type"]) === "network") {
+
+		var inMbs = parseFloat(DashboardData["devices"][count]["Mb/sIn"]["value"]);
+		var inMbsID = (DashboardData["devices"][count]["Mb/sIn"]["ID"]);
+		var outMbs = parseFloat(DashboardData["devices"][count]["Mb/sOut"]["value"]);
+		var outMbsID = (DashboardData["devices"][count]["Mb/sOut"]["ID"]);
+
+
 		var gaugeElement = document.getElementById(('Canvas') + (inMbsID));
-		gaugeElement.setAttribute('data-value', inMbs);
 		gaugeElement.setAttribute('data-title' , "Download");
-	
-		var gaugeElement = document.getElementById(('Canvas') + (outMbsID));
-		gaugeElement.setAttribute('data-value', outMbs);
-		gaugeElement.setAttribute('data-title' , "Upload");
-        //animateGauges(inMbs);
-        
-	//alert (inMbs);
-		}
-	else if ((test["devices"][count]["type"]) === "power"){
+		gaugeElement.setAttribute('data-color-bar-progress' , "rgb(175,238,238)");
 		
-		var Amps = parseFloat(test["devices"][count]["currentUsedAmps"]);
-		var AmpsID = (test["devices"][count]["AmpsID"]);
-		var Watts = parseFloat(test["devices"][count]["Watts"]);
-		var WattsID = (test["devices"][count]["WattsID"]);
+		if(inMbs <= 100) {
+			gaugeElement.setAttribute('data-value', inMbs);
+			gaugeElement.setAttribute('data-units' , "Mb/s");
+
+		} else if (inMbs <=1000){
+			gaugeElement.setAttribute('data-value', inMbs);
+			gaugeElement.setAttribute('data-units' , "Mb/s");	
+			gaugeElement.setAttribute('data-major-ticks' ,"0,100,200,300,400,500,600,700,800,900,1000" );
+			gaugeElement.setAttribute('data-max-value' , "1000");
+			gaugeElement.setAttribute('data-min-value' , "0");
+		} else if (inMbs <= 10000){
+			inMbs = inMbs / 1000;
+			gaugeElement.setAttribute('data-value', inMbs);
+			gaugeElement.setAttribute('data-units' , "Gb/s");	
+			gaugeElement.setAttribute('data-major-ticks' ,"0,1,2,3,4,5,6,7,8,9,10" );
+			gaugeElement.setAttribute('data-max-value' , "10");
+			gaugeElement.setAttribute('data-min-value' , "0");
+		} else {
+			inMbs = inMbs / 1000;
+			gaugeElement.setAttribute('data-value', inMbs);
+			gaugeElement.setAttribute('data-units' , "Gb/s");	
+			gaugeElement.setAttribute('data-major-ticks' ,"0,10,20,30,40,50" );
+			gaugeElement.setAttribute('data-max-value' , "50");
+			gaugeElement.setAttribute('data-min-value' , "0");
+		}
+		
+		
+		var gaugeElement = document.getElementById(('Canvas') + (outMbsID));
+		gaugeElement.setAttribute('data-title' , "Upload");
+		gaugeElement.setAttribute('data-color-bar-progress' , "rgb(221,160,221)");
+		
+		if(outMbs <= 100) {
+			gaugeElement.setAttribute('data-value', outMbs);
+			gaugeElement.setAttribute('data-units' , "Mb/s");
+
+		} else if (outMbs <=1000){
+			gaugeElement.setAttribute('data-value', outMbs);
+			gaugeElement.setAttribute('data-units' , "Mb/s");	
+			gaugeElement.setAttribute('data-major-ticks' ,"0,100,200,300,400,500,600,700,800,900,1000" );
+			gaugeElement.setAttribute('data-max-value' , "1000");
+			gaugeElement.setAttribute('data-min-value' , "0");
+		} else if (outMbs <= 10000){
+			outMbs = outMbs / 1000;
+			gaugeElement.setAttribute('data-value', outMbs);
+			gaugeElement.setAttribute('data-units' , "Gb/s");	
+			gaugeElement.setAttribute('data-major-ticks' ,"0,1,2,3,4,5,6,7,8,9,10" );
+			gaugeElement.setAttribute('data-max-value' , "10");
+			gaugeElement.setAttribute('data-min-value' , "0");
+		} else {
+			outMbs = outMbs / 1000;
+			gaugeElement.setAttribute('data-value', outMbs);
+			gaugeElement.setAttribute('data-units' , "Gb/s");	
+			gaugeElement.setAttribute('data-major-ticks' ,"0,10,20,30,40,50" );
+			gaugeElement.setAttribute('data-max-value' , "50");
+			gaugeElement.setAttribute('data-min-value' , "0");
+		}
+
+		}
+	else if ((DashboardData["devices"][count]["type"]) === "power"){
+		
+		var Amps = parseFloat(DashboardData["devices"][count]["currentUsedAmps"]["value"]);
+		var AmpsID = (DashboardData["devices"][count]["currentUsedAmps"]["ID"]);
+		var Watts = parseFloat(DashboardData["devices"][count]["Watts"]["value"]);
+		var WattsID = (DashboardData["devices"][count]["Watts"]["ID"]);
 		//alert(inMbsID);
 		var gaugeElement = document.getElementById(('Canvas') + (AmpsID));
 		gaugeElement.setAttribute('data-value', Amps);
-		gaugeElement.setAttribute('data-units' , "APM");
-		gaugeElement.setAttribute('data-color-major-ticks' , "yellow");
-		gaugeElement.setAttribute('data-major-ticks' , "0,1,2,3,4,5,6,7,8,9,10");
-		gaugeElement.setAttribute('data-max-value' , "10");
+		gaugeElement.setAttribute('data-units' , "amps");
+		gaugeElement.setAttribute('data-color-bar-progress' , "yellow");
+		gaugeElement.setAttribute('data-major-ticks' , "0,2,4,6,8,10,12,14,16");
+		gaugeElement.setAttribute('data-max-value' , "16");
 		gaugeElement.setAttribute('data-min-value' , "0");
+
 	
 		var gaugeElement = document.getElementById(('Canvas') + (WattsID));
-		gaugeElement.setAttribute('data-value', Watts);
-		gaugeElement.setAttribute('data-units' , "Watts");
-		gaugeElement.setAttribute('data-color-major-ticks' , "yellow");
-		gaugeElement.setAttribute('data-major-ticks' ,"0,200,400,600,800,1000,1200,1400,1600,1800,2000,2200,2400" );
-		gaugeElement.setAttribute('data-max-value' , "2400");
-		gaugeElement.setAttribute('data-min-value' , "0");
 		
-		//alert("test");
+		gaugeElement.setAttribute('data-color-bar-progress' , "black");
 		
-	}
-	else if ((test["devices"][count]["type"]) === "enviormental"){
+		if (Watts <= 1000) {
+			gaugeElement.setAttribute('data-value', Watts);
+			gaugeElement.setAttribute('data-units' , "watts");
+			gaugeElement.setAttribute('data-major-ticks' ,"0,100,200,300,400,500,600,700,800,900,1000" );
+			gaugeElement.setAttribute('data-max-value' , "1000");
+			gaugeElement.setAttribute('data-min-value' , "0");
+			//gaugeElement.setAttribute('data-highlights' , '[{"from": 0, "to": 250, "color": "green"},{"from": 250, "to": 500, "color": "yellow"},{"from": 500, "to": 750, "color": "orange"},{"from": 750, "to": 1000, "color": "red"}]');
+		} else if (Watts <= 10000) {
+			Watts = Watts / 1000;
+			gaugeElement.setAttribute('data-value', Watts);
+			gaugeElement.setAttribute('data-units' , "Kw");
+			gaugeElement.setAttribute('data-major-ticks' ,"0,1,2,3,4,5,6,7,8,9,10" );
+			gaugeElement.setAttribute('data-max-value' , "10");
+			gaugeElement.setAttribute('data-min-value' , "0");
+		} else {
+			Watts = Watts / 1000;
+			gaugeElement.setAttribute('data-value', Watts);
+			gaugeElement.setAttribute('data-units' , "Kw");
+			gaugeElement.setAttribute('data-major-ticks' ,"0,2,4,6,8,10,12,14,16,18,20" );
+			gaugeElement.setAttribute('data-max-value' , "20");
+			gaugeElement.setAttribute('data-min-value' , "0");
+		}
 		
-		var temp = parseFloat(test["devices"][count]["temp"]);
-		var tempID = (test["devices"][count]["tempID"]);
-		var CO2 = parseFloat(test["devices"][count]["CO2"]);
-		var CO2ID = (test["devices"][count]["CO2ID"]);
-		var TVOC = parseFloat(test["devices"][count]["TVOC"]);
-		var TVOCID = (test["devices"][count]["TVOCID"]);
+
+		
+	} 
+	else if ((DashboardData["devices"][count]["type"]) === "environmental"){
+		
+		
+		var temp = parseFloat(DashboardData["devices"][count]["temp"]["value"]);
+		var tempID = (DashboardData["devices"][count]["temp"]["ID"]);
+		var CO2 = parseFloat(DashboardData["devices"][count]["CO2"]["value"]);
+		var CO2ID = (DashboardData["devices"][count]["CO2"]["ID"]);
+		var TVOC = parseFloat(DashboardData["devices"][count]["TVOC"]["value"]);
+		var TVOCID = (DashboardData["devices"][count]["TVOC"]["ID"]);
 		//alert(inMbsID);
 		var gaugeElement = document.getElementById(('Canvas') + (tempID));
 		gaugeElement.setAttribute('data-value', temp);
-		gaugeElement.setAttribute('data-units' , "C");
+		gaugeElement.setAttribute('data-units' , "°C");
+		gaugeElement.setAttribute('data-color-bar-progress' , "red");
 		gaugeElement.setAttribute('data-type' , "linear-gauge");
 		gaugeElement.setAttribute('data-major-ticks' , "0,10,20,30,40");
 		gaugeElement.setAttribute('data-max-value' , "40");
 		gaugeElement.setAttribute('data-min-value' , "0");
-	
+		gaugeElement.setAttribute('data-font-style-value' , "sans-serif");
+		gaugeElement.setAttribute('data-font-weight-value' , "bold");
+		gaugeElement.setAttribute('data-font-value-size' , 14);
+		gaugeElement.setAttribute('data-font-units-size' , 10);
+		gaugeElement.setAttribute('data-font-numbers-size' , 10);
+		
 		var gaugeElement = document.getElementById(('Canvas') + (CO2ID));
 		gaugeElement.setAttribute('data-value', CO2);
 		gaugeElement.setAttribute('data-units' , "PPM");
-		gaugeElement.setAttribute('data-title' , "Carbon Dioxide");
-		gaugeElement.setAttribute('data-major-ticks' ,"0,200,400,600,800,1000,1200,1400,1600,1800,2000,2200,2400" );
-		gaugeElement.setAttribute('data-max-value' , "2400");
+		gaugeElement.setAttribute('data-color-bar-progress' , "rgb(255,165,0)");
+		gaugeElement.setAttribute('data-title' , "CO2");
+		gaugeElement.setAttribute('data-major-ticks' ,"0,10000,20000,30000,40000,50000,60000" );
+		gaugeElement.setAttribute('data-max-value' , "60000");
 		gaugeElement.setAttribute('data-min-value' , "0");
+		gaugeElement.setAttribute('data-highlights' , '[{"from": 50000, "to": 60000, "color": "red"}]');
+		
 		
 		var gaugeElement = document.getElementById(('Canvas') + (TVOCID));
 		gaugeElement.setAttribute('data-value', TVOC);
 		gaugeElement.setAttribute('data-units' , "PPM");
 		gaugeElement.setAttribute('data-title' , "TVOC");
-		gaugeElement.setAttribute('data-major-ticks' ,"0,200,400,600,800,1000,1200,1400,1600,1800,2000,2200,2400" );
-		gaugeElement.setAttribute('data-max-value' , "2400");
+		gaugeElement.setAttribute('data-major-ticks' ,"500, 1000,1500,2000,2500,3000" );
+		gaugeElement.setAttribute('data-max-value' , "3000");
 		gaugeElement.setAttribute('data-min-value' , "0");
 	
-	
-	
-	}
+		} 
 	count = count + 1;
 		}
-
-
-            }
-		};
-		function RequestJSON(){
-		var timestamp = new Date();
-		xhttp.open("GET", ("dashboard.json" + "?" + timestamp.getTime()), true);
-		xhttp.send();
-
 		}
-function StartRequest(){
-	setInterval(RequestJSON, 60000);
-}
-RequestJSON();
-StartRequest();
-clockTimer=0;
+		
+		};
+		
+var getPollTimexhttp = new XMLHttpRequest();
+getPollTimexhttp.onreadystatechange = function() {
+	let DashboardData;
+	if (this.readyState == 4 && this.status == 200) {
+
+		DashboardData = JSON.parse(this.responseText);
+		  
+		pollTime = (DashboardData["System"]["pollTime"]);
+		pollTime = pollTime * 1000;
+		startBackgroundRequests(pollTime);
+            }
+
+		};
+		
+function RequestAllJSON(){
+		var timestamp = new Date();
+		pollTime = xhttp.open("GET", ("/dashboard.json" + "?" + timestamp.getTime()), true);
+		xhttp.send();
+		}
+		
+function startBackgroundRequests(pollTime){
+	RequestAllJSON();
+	setInterval(RequestAllJSON, pollTime);
+	}
+
+var timestamp = new Date();
+getPollTimexhttp.open("GET", ("/dashboard.json" + "?" + timestamp.getTime()), true);
+getPollTimexhttp.send();
+
 
 

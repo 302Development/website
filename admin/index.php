@@ -1,5 +1,6 @@
 <?php
 	include_once($_SERVER['DOCUMENT_ROOT']."/php/admin.php");
+	include_once($_SERVER['DOCUMENT_ROOT']."/php/render.php");
 
 	function adminError($msg) {
 		echo "
@@ -295,38 +296,6 @@
 																<td>San Francisco</td>
 																<td>66</td>
 																<td>2009/01/12</td>
-															</tr><tr role="row" class="odd">
-																<td class=" select-checkbox"></td>
-																<td class="sorting_1">Brielle</td>
-																<td>Williamson</td>
-																<td>Integration Specialist</td>
-																<td>New York</td>
-																<td>61</td>
-																<td>2012/12/02</td>
-															</tr><tr role="row" class="even">
-																<td class=" select-checkbox"></td>
-																<td class="sorting_1">Brielle</td>
-																<td>Williamson</td>
-																<td>Integration Specialist</td>
-																<td>New York</td>
-																<td>61</td>
-																<td>2012/12/02</td>
-															</tr><tr role="row" class="odd">
-																<td class=" select-checkbox"></td>
-																<td class="sorting_1">Brielle</td>
-																<td>Williamson</td>
-																<td>Integration Specialist</td>
-																<td>New York</td>
-																<td>61</td>
-																<td>2012/12/02</td>
-															</tr><tr role="row" class="even">
-																<td class=" select-checkbox"></td>
-																<td class="sorting_1">Brielle</td>
-																<td>Williamson</td>
-																<td>Integration Specialist</td>
-																<td>New York</td>
-																<td>61</td>
-																<td>2012/12/02</td>
 														</tr>
 													</tbody>
 												</table>
@@ -365,7 +334,13 @@
 
 				<!-- start presentation-fab -->
 					<div role="tabpanel" class="tab-pane" id= "presentation-fixed">
-						Presentation Mode Tab
+
+						<?php
+                        render('network-cards');
+						render('performance-cards');
+                        render('power-cards');
+						render('environment-cards');
+						?>
 					</div><!-- /.tabpanel -->
 				<!-- end presentation-fab -->
 
@@ -380,6 +355,13 @@
 		<script src="/assets/js/bootstrap.min.js"></script>
 		<script src="/assets/js/gauge.min.js"></script>
 		<script src="/assets/js/propeller.min.js"></script>
+		<script src="/assets/js/jquery.dataTables.min.js"></script>
+		<script src="/assets/js/pullData.js"></script>
+		<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+		</script>
 	<!-- /external scripts -->
 
 <!-- end scripts -->

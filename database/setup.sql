@@ -30,14 +30,14 @@ CREATE TABLE `cards` (
   `minortick` int(10) UNSIGNED NOT NULL,
   `tickformat` varchar(256) NOT NULL,
   `type` int(10) UNSIGNED NOT NULL,
-  `PublicPresVis` tinyint(1),
+  `PublicPresVis` tinyint(1)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cards`
 --
 
-INSERT INTO `cards` (`id`, `title`, `subtitle`, `datatitle`, `dataunit`, `minortick`, `tickformat`, `type` `PublicPresVis`) VALUES
+INSERT INTO `cards` (`id`, `title`, `subtitle`, `datatitle`, `dataunit`, `minortick`, `tickformat`, `type`, `PublicPresVis`) VALUES
 (1, 'Network Card #1', 'Download', 'Download', 'Mb/s', 1, '0,20,30,40,50,60,70,80,90,100', 1, 1),
 (2, 'Network Card #2', 'Download', 'Download', 'Mb/s', 1, '0,20,30,40,50,60,70,80,90,100', 1, 1),
 (3, 'Network Card #3', 'Download', 'Download', 'Mb/s', 1, '0,20,30,40,50,60,70,80,90,100', 1, 1),

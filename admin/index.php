@@ -334,12 +334,8 @@
 
 				<!-- start presentation-fab -->
 					<div role="tabpanel" class="tab-pane" id= "presentation-fixed">
-
 						<?php
-                        render('network-cards');
-						render('performance-cards');
-                        render('power-cards');
-						render('environment-cards');
+							render('presentation-cards');
 						?>
 					</div><!-- /.tabpanel -->
 				<!-- end presentation-fab -->

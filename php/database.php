@@ -81,5 +81,11 @@
 
 		return (empty($response)) ? false : $response;
 	}
+
+	public static function getPresentationCards() {
+		$response = Database::query("SELECT cards.* FROM cards WHERE PublicPresVis = '1' ORDER BY cards.id ASC");
+
+		return (empty($response)) ? false : $response;
+	}
 }
 ?>

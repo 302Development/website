@@ -12,6 +12,16 @@
 		";
 	}
 
+	function renderLog($msg) {
+		echo "
+		<div class=\"text-center\">
+			<h1>
+				$msg
+			<h1/>
+		</div>
+		";
+	}
+
 	function render($option) {
 		$contents = "";
 
@@ -70,6 +80,13 @@
 				$response = Database::getCards('environment');
 				echo ($response === false) ? 
 					renderError("environemnt-cards") : 
+					populateTemplate("cards", $response);
+				break;
+
+			case 'presentation-cards':
+				$response = Database::getPresentationCards();
+				echo ($response === false) ? 	
+					renderLog("Do you have any cards set to present?") : 
 					populateTemplate("cards", $response);
 				break;
 

@@ -351,9 +351,8 @@
 		<script src="/assets/js/bootstrap.min.js"></script>
 		<script src="/assets/js/gauge.min.js"></script>
 		<script src="/assets/js/propeller.min.js"></script>
-		<script src="/assets/js/jquery.dataTables.min.js"></script>
+		<script src="/assets/js/propeller.min.js"></script>
 		<script src="/assets/js/pullData.js"></script>
-		<script src="/assets/js/PublicPres.js"></script>
 		<script>
 $(document).ready(function() {
     $('#example').DataTable();

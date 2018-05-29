@@ -1,7 +1,6 @@
 <?php
 	class Database {
 	private static function connect() {
-		$connection = new PDO("mysql:host=127.0.0.1;dbname=frontend;charset=utf8", "root", "password");
 		$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, true);
 		return $connection;
@@ -57,7 +56,7 @@
 	public static function addCard(&$postData) {
 		if (isset($postData['category'])) {
 			// Set defualt values in database.
-			$response = Database::query("INSERT INTO cards (title, subtitle, datatitle, type) VALUES ( 'Title', 'Sub-Title', 'Data Title', (SELECT categories.id FROM categories WHERE categories.category = :category))",
+			$response = Database::query("INSERT INTO cards (title, subtitle, type) VALUES ( 'Title', 'Sub-Title', (SELECT categories.id FROM categories WHERE categories.category = :category))",
 				array( ":category" => $postData['category'])
 			);
 

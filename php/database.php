@@ -83,7 +83,7 @@
 	}
 
 	public static function getPresentationCards() {
-		$response = Database::query("SELECT cards.* FROM cards WHERE disabled = 0 AND publicPresVis = '1' ORDER BY cards.id ASC");
+		$response = Database::query("SELECT cards.* FROM cards WHERE disabled = 0 AND publicPresVis = '1' ORDER BY cards.id ASC", array());
 
 		return (empty($response)) ? false : $response;
 	}

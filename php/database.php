@@ -1,6 +1,7 @@
 <?php
 	class Database {
 	private static function connect() {
+		$connection = new PDO("mysql:host=127.0.0.1;dbname=frontend;charset=utf8", "root", "password");
 		$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, true);
 		return $connection;

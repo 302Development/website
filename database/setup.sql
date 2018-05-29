@@ -26,9 +26,6 @@ CREATE TABLE `cards` (
   `title` varchar(256) NOT NULL,
   `subtitle` varchar(256) NOT NULL,
   `datatitle` varchar(256) NOT NULL,
-  `dataunit` varchar(128) NOT NULL,
-  `minortick` int(10) UNSIGNED NOT NULL,
-  `tickformat` varchar(256) NOT NULL,
   `type` int(10) UNSIGNED NOT NULL,
   `PublicPresVis` tinyint(1) DEFAULT '0',
   `disabled` tinyint(1) DEFAULT '0'
@@ -38,23 +35,23 @@ CREATE TABLE `cards` (
 -- Dumping data for table `cards`
 --
 
-INSERT INTO `cards` (`id`, `title`, `subtitle`, `datatitle`, `dataunit`, `minortick`, `tickformat`, `type`, `PublicPresVis`, `disabled`) VALUES
-(1, 'Network Card #1', 'Download', 'Download', 'Mb/s', 1, '0,20,30,40,50,60,70,80,90,100', 1, 1, 0),
-(2, 'Network Card #2', 'Download', 'Download', 'Mb/s', 1, '0,20,30,40,50,60,70,80,90,100', 1, 0, 0),
-(3, 'Network Card #3', 'Download', 'Download', 'Mb/s', 1, '0,20,30,40,50,60,70,80,90,100', 1, 0, 0),
-(4, 'Network Card #4', 'Download', 'Download', 'Mb/s', 1, '0,20,30,40,50,60,70,80,90,100', 1, 0, 0),
-(5, 'Performance Card #1', 'Performance', 'Performance', 'XX', 1, '0,20,30,40,50,60,70,80,90,100', 2, 1, 0),
-(6, 'Performance Card #2', 'Performance', 'Performance', 'XX', 1, '0,20,30,40,50,60,70,80,90,100', 2, 0, 0),
-(7, 'Performance Card #3', 'Performance', 'Performance', 'XX', 1, '0,20,30,40,50,60,70,80,90,100', 2, 0, 0),
-(8, 'Performance Card #4', 'Performance', 'Performance', 'XX', 1, '0,20,30,40,50,60,70,80,90,100', 2, 0, 0),
-(9, 'Power Card #1', 'Power', 'Power', 'MB/s', 1, '0,20,30,40,50,60,70,80,90,100', 3, 1, 0),
-(10, 'Power Card #2', 'Power', 'Power', 'MB/s', 1, '0,20,30,40,50,60,70,80,90,100', 3, 0, 0),
-(11, 'Power Card #3', 'Power', 'Power', 'MB/s', 1, '0,20,30,40,50,60,70,80,90,100', 3, 0, 0),
-(12, 'Power Card #4', 'Power', 'Power', 'MB/s', 1, '0,20,30,40,50,60,70,80,90,100', 3, 0, 0),
-(13, 'Environment Card #1', 'Environment', 'Environment', 'PPM', 1, '0,20,30,40,50,60,70,80,90,100', 4, 1, 0),
-(14, 'Environment Card #2', 'Environment', 'Environment', 'PPM', 1, '0,20,30,40,50,60,70,80,90,100', 4, 0, 0),
-(15, 'Environment Card #3', 'Environment', 'Environment', 'PPM', 1, '0,20,30,40,50,60,70,80,90,100', 4, 0, 0),
-(16, 'Environment Card #4', 'Environment', 'Environment', 'PPM', 1, '0,20,30,40,50,60,70,80,90,100', 4, 0, 0);
+INSERT INTO `cards` (`id`, `title`, `subtitle`, `datatitle`, `type`, `PublicPresVis`, `disabled`) VALUES
+(1, 'Network Card #1', 'Download', 'Download', 1, 1, 0),
+(2, 'Network Card #2', 'Download', 'Download', 1, 0, 0),
+(3, 'Network Card #3', 'Download', 'Download', 1, 0, 0),
+(4, 'Network Card #4', 'Download', 'Download', 1, 0, 0),
+(5, 'Performance Card #1', 'Performance', 'Performance',  2, 1, 0),
+(6, 'Performance Card #2', 'Performance', 'Performance',  2, 0, 0),
+(7, 'Performance Card #3', 'Performance', 'Performance',  2, 0, 0),
+(8, 'Performance Card #4', 'Performance', 'Performance',  2, 0, 0),
+(9, 'Power Card #1', 'Power', 'Power', 3, 1, 0),
+(10, 'Power Card #2', 'Power', 'Power', 3, 0, 0),
+(11, 'Power Card #3', 'Power', 'Power', 3, 0, 0),
+(12, 'Power Card #4', 'Power', 'Power', 3, 0, 0),
+(13, 'Environment Card #1', 'Environment', 'Environment',  4, 1, 0),
+(14, 'Environment Card #2', 'Environment', 'Environment',  4, 0, 0),
+(15, 'Environment Card #3', 'Environment', 'Environment',  4, 0, 0),
+(16, 'Environment Card #4', 'Environment', 'Environment',  4, 0, 0);
 
 -- --------------------------------------------------------
 

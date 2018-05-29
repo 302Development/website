@@ -56,11 +56,11 @@
 
 	public static function addCard(&$postData) {
 		if (isset($postData['category'])) {
-			echo $postData['category'];
 			// Set defualt values in database.
-			$response = Database::query("INSERT INTO cards VALUES ( NULL, 'Title', 'Sub-Title', 'Data Title', (SELECT categories.id FROM categories WHERE categories.category = :category))",
+			$response = Database::query("INSERT INTO cards (title, subtitle, datatitle, type) VALUES ( 'Title', 'Sub-Title', 'Data Title', (SELECT categories.id FROM categories WHERE categories.category = :category))",
 				array( ":category" => $postData['category'])
 			);
+
 			if ($response) 
 				echo "Added a new card.<br>";
 		}

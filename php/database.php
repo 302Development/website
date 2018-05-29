@@ -25,9 +25,9 @@
 	public static function updateCard(&$postData) {
 		if (isset($postData['id'])) {
 			$cardID = intval($postData['id']);
-
+			
 			foreach ($postData as $collumn => $data) {            	
-				if (self::checkUpdatable($collumn) && !empty($data)) {
+				if (self::checkUpdatable($collumn) && strlen($data) != 0) {
 
 					$response = Database::query("UPDATE cards SET $collumn = :data WHERE id = :cardID",
 						array(

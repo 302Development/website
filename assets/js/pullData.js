@@ -109,6 +109,13 @@ xhttp.onreadystatechange = function() {
                 var upTimeDays = parseFloat(data["upTimeDays"]["value"]);
                 var upTimeDaysID = (data["upTimeDays"]["ID"]);
 
+                var procPercPerCore = (data["procPercPerCore"]["value"]);
+                procPercPerCore = procPercPerCore.map(function(e, i) {
+                    return "Core #" + ([...Array(procPercPerCore.length).keys()][i] + 1) + ": " + e ;
+                }).join("<br/>");
+                
+                var procPercPerCoreID = (data["procPercPerCore"]["ID"]);
+
                 var gaugeElement = document.getElementById(('Canvas') + (storageID));
 
                 if (gaugeElement != null) {
@@ -145,13 +152,22 @@ xhttp.onreadystatechange = function() {
 
                 
                 var gaugeElement = document.getElementById(('Canvas') + (upTimeDaysID));
-                console.log("> " + ('Canvas') + (upTimeDaysID));
-                console.log(gaugeElement);
                 if (gaugeElement != null) {
                     gaugeElement.parentElement.innerHTML =`
                         <div id="Canvas${upTimeDaysID}" style="width: 400px; height: 400px;">
-                            <div class="center">
-                                <h1>Uptime: ${upTimeDays} days</h1>
+                            <div class="center-text-card">
+                                <h1>Uptime:<br/>${upTimeDays} days</h1>
+                            </div>
+                        </div>
+                        `;
+                }
+
+                var gaugeElement = document.getElementById(('Canvas') + (procPercPerCoreID));
+                if (gaugeElement != null) {
+                    gaugeElement.parentElement.innerHTML =`
+                        <div id="Canvas${procPercPerCoreID}" style="width: 400px; height: 400px;">
+                            <div class="center-text-card">
+                                <h1>Processes Per Core:<br/>${procPercPerCore}</h1>
                             </div>
                         </div>
                         `;

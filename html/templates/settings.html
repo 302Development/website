@@ -24,37 +24,29 @@
 				</div>			
 			</li>
 
-			<li class="list-group-item">
-				<div class="form-group">
-					<label>Data Unit: </label>
-					<input type="text" class="form-control" name="dataunit" placeholder="{{dataunit}}">
-				</div>			
-			</li>
-
-			<li class="list-group-item">
-				<div class="form-group">
-					<label>Minor Tick: </label>
-					<input type="text" class="form-control" name="minortick" placeholder="{{minortick}}">
-				</div>			
-			</li>
-
-			<li class="list-group-item">
-				<div class="form-group">
-					<label>Tick Format: </label>
-					<input type="text" class="form-control" name="tickformat" placeholder="{{tickformat}}">
-				</div>			
-			</li>
 
 			<li class="list-group-item">
 				<div class="form-group">
 					<label>Display in Presentation Mode: </label>
 					<input type="hidden" name="PublicPresVis" value="0">
-					<input id="checkbox-{{id}}" type="checkbox" name="PublicPresVis" value="1"><br>
+					<input id="checkbox-pres-{{id}}" type="checkbox" name="PublicPresVis" value="1"><br>
 					<script type="text/javascript">
-						document.getElementById("checkbox-{{id}}").checked = ({{PublicPresVis}} === 1);
+						document.getElementById("checkbox-pres-{{id}}").checked = ({{PublicPresVis}} === 1);
 					</script>					
 				</div>		
 			</li>
+
+			<li class="list-group-item">
+				<div class="form-group">
+					<label>Disabled: </label>
+					<input type="hidden" name="disabled" value="0">
+					<input id="checkbox-disable-{{id}}" type="checkbox" name="disabled" value="1"><br>
+					<script type="text/javascript">
+						document.getElementById("checkbox-disable-{{id}}").checked = ({{disabled}} === 1);
+					</script>					
+				</div>		
+			</li>
+
 			<li class="list-group-item">
 				<input type="submit" class="btn btn-primary" name="action" value="Update" />
 				<input type="submit" class="btn btn-primary" name="action" value="Delete" />

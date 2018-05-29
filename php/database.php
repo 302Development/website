@@ -58,7 +58,7 @@
 		if (isset($postData['category'])) {
 			echo $postData['category'];
 			// Set defualt values in database.
-			$response = Database::query("INSERT INTO cards VALUES ( NULL, 'Title', 'Sub-Title', 'Data Title', 'Data Unit', 1, '0,20,30,40,50,60,70,80,90,100', (SELECT categories.id FROM categories WHERE categories.category = :category))",
+			$response = Database::query("INSERT INTO cards VALUES ( NULL, 'Title', 'Sub-Title', 'Data Title', (SELECT categories.id FROM categories WHERE categories.category = :category))",
 				array( ":category" => $postData['category'])
 			);
 			if ($response) 
@@ -75,7 +75,7 @@
 	}
 
 	public static function getCards($category) {
-		$response = Database::query("SELECT cards.* FROM cards LEFT JOIN categories ON cards.type = categories.id WHERE categories.category = :category ORDER BY cards.id ASC",
+		$response = Database::query("SELECT cards.* FROM cards LEFT JOIN categories ON cards.type = categories.id WHERE disabled = 0 AND categories.category = :category ORDER BY cards.id ASC",
 			array(":category" => $category)
 		);
 
@@ -83,7 +83,7 @@
 	}
 
 	public static function getPresentationCards() {
-		$response = Database::query("SELECT cards.* FROM cards WHERE PublicPresVis = '1' ORDER BY cards.id ASC");
+		$response = Database::query("SELECT cards.* FROM cards WHERE disabled = 0 AND publicPresVis = '1' ORDER BY cards.id ASC");
 
 		return (empty($response)) ? false : $response;
 	}

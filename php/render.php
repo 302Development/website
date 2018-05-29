@@ -6,7 +6,7 @@
 		echo "
 		<div class=\"text-center\">
 			<h1>
-				There was an issue rendering: $msg.
+				There was an issue rendering: $msg
 			<h1/>
 		</div>
 		";

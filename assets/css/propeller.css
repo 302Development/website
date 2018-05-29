@@ -45,6 +45,18 @@
 
   src: url("../fonts/roboto/Roboto-Black-webfont.eot?") format("eot"), url("../fonts/roboto/Roboto-Black-webfont.woff2") format("woff2"), url("../fonts/roboto/Roboto-Black-webfont.woff") format("woff"), url("../fonts/roboto/Roboto-Black-webfont.ttf") format("truetype"), url('../fonts/roboto/Roboto-Black-webfont.svg#str-replace("Roboto", " ", "_")') format("svg");
 }
+
+/* Custom */
+.center {
+  text-align: center;
+  width: 50%;
+  height: 20%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
 /*!
  * Propeller v1.3.0 (http://propeller.in): typography.css
  * Copyright 2016-2018 Digicorp, Inc.

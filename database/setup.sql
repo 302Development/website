@@ -53,7 +53,7 @@ INSERT INTO `cards` (`id`, `title`, `subtitle`, `type`, `PublicPresVis`, `disabl
 (27, 'Performance Card #5', 'Storage', 2, 0, 0, 81),
 (28, 'Performance Card #6', 'Memory', 2, 0, 0, 82),
 (29, 'Performance Card #7', 'Proc Perc Per Core', 2, 0, 0, 56),
-(30, 'Performance Card #8', 'Up Time (Days)', 2, 0, 0, 66);
+(30, 'Performance Card #8', 'Up Time (Days)', 2, 0, 0, 55);
 
 -- --------------------------------------------------------
 

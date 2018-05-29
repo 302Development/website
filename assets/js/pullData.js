@@ -142,6 +142,20 @@ xhttp.onreadystatechange = function() {
                     gaugeElement.setAttribute('data-max-value', "100");
                     gaugeElement.setAttribute('data-min-value', "0");
                 }
+
+                
+                var gaugeElement = document.getElementById(('Canvas') + (upTimeDaysID));
+                console.log("> " + ('Canvas') + (upTimeDaysID));
+                console.log(gaugeElement);
+                if (gaugeElement != null) {
+                    gaugeElement.parentElement.innerHTML =`
+                        <div id="Canvas${upTimeDaysID}" style="width: 400px; height: 400px;">
+                            <div class="center">
+                                <h1>Uptime: ${upTimeDays} days</h1>
+                            </div>
+                        </div>
+                        `;
+                }
                 //{"sysName": "sit-esxi.murdoch.edu.au", "storage": {"storageSizeGB": 3726.0, "storagePercUsed": 46}, "deviceID": "7", "mem": {"memPercUsed": 54, "ID": "52", "memSize": 36.0}, "OS": "vmware", "procPercPerCore": {"ID": "53", "value": [7, 77, 76, 23]}, "type": "performance", "upTimeDays": {"ID": "51", "value": 89.0}}
 
 	        } else if (data["type"] === "power") {

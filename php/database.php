@@ -18,18 +18,18 @@
 		return $success;
 	}
 
-	private static function checkUpdatable($collumn) {
-		return !in_array($collumn, array("id", "action"));
+	private static function checkUpdatable($column) {
+		return !in_array($column, array("id", "action"));
 	}
 
 	public static function updateCard(&$postData) {
 		if (isset($postData['id'])) {
 			$cardID = intval($postData['id']);
 			
-			foreach ($postData as $collumn => $data) {            	
-				if (self::checkUpdatable($collumn) && (strlen($data) != 0 || !empty($data))) {
+			foreach ($postData as $column => $data) {            	
+				if (self::checkUpdatable($column) && (strlen($data) != 0 || !empty($data))) {
 
-					$response = Database::query("UPDATE cards SET $collumn = :data WHERE id = :cardID",
+					$response = Database::query("UPDATE cards SET $column = :data WHERE id = :cardID",
 						array(
 							":data" => $data,
 							":cardID" => $cardID
@@ -37,7 +37,7 @@
 					);
 
 					if ($response) 
-						echo "Updated card #$cardID: '$collumn' to '$data'.<br>";
+						echo "Updated card #$cardID: '$column' to '$data'.<br>";
 				}
 			}
 		}		

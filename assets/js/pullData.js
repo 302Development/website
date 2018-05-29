@@ -171,7 +171,52 @@ if (this.readyState == 4 && this.status == 200) {
 		gaugeElement.setAttribute('data-max-value' , "3000");
 		gaugeElement.setAttribute('data-min-value' , "0");
 	
-		} 
+		}else if ((DashboardData["devices"][count]["type"]) === "performance"){
+		var storageSizeGB = parseInt(DashboardData["devices"][count]["storage"]["storageSizeGB"]);
+		var storagePercUsed = parseInt(DashboardData["devices"][count]["storage"]["storagePercUsed"]);
+		var storageID = (DashboardData["devices"][count]["storage"]["ID"]); 
+		//alert(storageID); parse
+		
+		
+		var memSizeGB = parseFloat(DashboardData["devices"][count]["mem"]["memSize"]);
+		var memPercUsed = parseFloat(DashboardData["devices"][count]["mem"]["memPercUsed"]);
+		var memID = (DashboardData["devices"][count]["mem"]["ID"]);
+		
+		var upTimeDays = parseFloat(DashboardData["devices"][count]["upTimeDays"]["value"]);
+		var upTimeDaysID = (DashboardData["devices"][count]["upTimeDays"]["ID"]);
+		
+		var gaugeElement = document.getElementById(('Canvas') + (storageID));
+		
+		if (storageSizeGB <=1000){
+			var used = (storageSizeGB /100) * storagePercUsed;
+			var cardTitleStorage = parseFloat(used).toFixed(2) + "/" + storageSizeGB + " GB";
+		}else {
+			var used = ((storageSizeGB /100) * storagePercUsed) /1024;
+			storageSizeGB = storageSizeGB / 1024
+			var cardTitleStorage = parseFloat(used).toFixed(2) + "/" + parseFloat(storageSizeGB).toFixed(2) + " TB";
+		}
+		gaugeElement.setAttribute('data-value', storagePercUsed);
+		gaugeElement.setAttribute('data-units' , "Storage %");
+		gaugeElement.setAttribute('data-title' , cardTitleStorage);
+		gaugeElement.setAttribute('data-major-ticks' ,"0, 10,20,30,40,50,60,70,80,90,100" );
+		gaugeElement.setAttribute('data-max-value' , "100");
+		gaugeElement.setAttribute('data-min-value' , "0");
+		
+		
+		
+		var gaugeElement = document.getElementById(('Canvas') + (memID));
+		var used = (memSizeGB /100) * memPercUsed;
+		var cardTitlemem = parseFloat(used).toFixed(2) + "/" + memSizeGB + " GB";
+		gaugeElement.setAttribute('data-value', memPercUsed);
+		gaugeElement.setAttribute('data-units' , "Memory %");
+		gaugeElement.setAttribute('data-title' , cardTitlemem);
+		gaugeElement.setAttribute('data-major-ticks' ,"0, 10,20,30,40,50,60,70,80,90,100" );
+		gaugeElement.setAttribute('data-max-value' , "100");
+		gaugeElement.setAttribute('data-min-value' , "0");
+		
+		//{"sysName": "sit-esxi.murdoch.edu.au", "storage": {"storageSizeGB": 3726.0, "storagePercUsed": 46}, "deviceID": "7", "mem": {"memPercUsed": 54, "ID": "52", "memSize": 36.0}, "OS": "vmware", "procPercPerCore": {"ID": "53", "value": [7, 77, 76, 23]}, "type": "performance", "upTimeDays": {"ID": "51", "value": 89.0}}
+		}
+		
 	count = count + 1;
 		}
 		}

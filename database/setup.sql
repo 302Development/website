@@ -12,7 +12,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `frontend`
 --
-
 CREATE DATABASE frontend;
 USE frontend;
 -- --------------------------------------------------------
@@ -25,33 +24,36 @@ CREATE TABLE `cards` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(256) NOT NULL,
   `subtitle` varchar(256) NOT NULL,
-  `datatitle` varchar(256) NOT NULL,
   `type` int(10) UNSIGNED NOT NULL,
   `PublicPresVis` tinyint(1) DEFAULT '0',
-  `disabled` tinyint(1) DEFAULT '0'
+  `disabled` tinyint(1) DEFAULT '0',
+  `device` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cards`
 --
 
-INSERT INTO `cards` (`id`, `title`, `subtitle`, `datatitle`, `type`, `PublicPresVis`, `disabled`) VALUES
-(1, 'Network Card #1', 'Download', 'Download', 1, 1, 0),
-(2, 'Network Card #2', 'Download', 'Download', 1, 0, 0),
-(3, 'Network Card #3', 'Download', 'Download', 1, 0, 0),
-(4, 'Network Card #4', 'Download', 'Download', 1, 0, 0),
-(5, 'Performance Card #1', 'Performance', 'Performance',  2, 1, 0),
-(6, 'Performance Card #2', 'Performance', 'Performance',  2, 0, 0),
-(7, 'Performance Card #3', 'Performance', 'Performance',  2, 0, 0),
-(8, 'Performance Card #4', 'Performance', 'Performance',  2, 0, 0),
-(9, 'Power Card #1', 'Power', 'Power', 3, 1, 0),
-(10, 'Power Card #2', 'Power', 'Power', 3, 0, 0),
-(11, 'Power Card #3', 'Power', 'Power', 3, 0, 0),
-(12, 'Power Card #4', 'Power', 'Power', 3, 0, 0),
-(13, 'Environment Card #1', 'Environment', 'Environment',  4, 1, 0),
-(14, 'Environment Card #2', 'Environment', 'Environment',  4, 0, 0),
-(15, 'Environment Card #3', 'Environment', 'Environment',  4, 0, 0),
-(16, 'Environment Card #4', 'Environment', 'Environment',  4, 0, 0);
+INSERT INTO `cards` (`id`, `title`, `subtitle`, `type`, `PublicPresVis`, `disabled`, `device`) VALUES
+(1, 'Network Card #1', 'Download', 1, 1, 0, 1),
+(2, 'Network Card #2', 'Download', 1, 0, 0, 2),
+(3, 'Network Card #3', 'Download', 1, 0, 0, 3),
+(4, 'Network Card #4', 'Download', 1, 0, 0, 4),
+(5, 'Performance Card #1', 'Storage', 2, 0, 0, 5),
+(6, 'Performance Card #2', 'Memory', 2, 1, 0, 6),
+(9, 'Power Card #1', 'Power', 3, 1, 0, 9),
+(10, 'Power Card #2', 'Power', 3, 0, 0, 10),
+(13, 'Environment Card #1', 'Environment', 4, 1, 0, 14),
+(14, 'Environment Card #2', 'Environment', 4, 0, 0, 13),
+(15, 'Environment Card #3', 'Environment', 4, 0, 0, 15),
+(22, 'Network Card #5', 'Download', 1, 0, 0, 17),
+(23, 'Network Card #6', 'Upload', 1, 0, 0, 18),
+(25, 'Performance Card #3', 'Proc Perc Per Core', 2, 0, 0, 7),
+(26, 'Performance Card #4', 'Up Time (Days)', 2, 0, 0, 83),
+(27, 'Performance Card #5', 'Storage', 2, 0, 0, 81),
+(28, 'Performance Card #6', 'Memory', 2, 0, 0, 82),
+(29, 'Performance Card #7', 'Proc Perc Per Core', 2, 0, 0, 56),
+(30, 'Performance Card #8', 'Up Time (Days)', 2, 0, 0, 66);
 
 -- --------------------------------------------------------
 
@@ -100,12 +102,14 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `cards`
 --
 ALTER TABLE `cards`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- Constraints for dumped tables
 --

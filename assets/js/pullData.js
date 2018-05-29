@@ -172,6 +172,10 @@ if (this.readyState == 4 && this.status == 200) {
 		gaugeElement.setAttribute('data-min-value' , "0");
 	
 		}else if ((DashboardData["devices"][count]["type"]) === "performance"){
+		
+		
+		
+		
 		var storageSizeGB = parseInt(DashboardData["devices"][count]["storage"]["storageSizeGB"]);
 		var storagePercUsed = parseInt(DashboardData["devices"][count]["storage"]["storagePercUsed"]);
 		var storageID = (DashboardData["devices"][count]["storage"]["ID"]); 
@@ -214,6 +218,10 @@ if (this.readyState == 4 && this.status == 200) {
 		gaugeElement.setAttribute('data-max-value' , "100");
 		gaugeElement.setAttribute('data-min-value' , "0");
 		
+		
+		
+		var gaugeElement = document.getElementById(('CanvasGage') + (upTimeDaysID));
+		gaugeElement.innerHTML ="<h1 text-align:centre; ></br></br></br></br></br> Up Time: </br></br>" + upTimeDays + " </br></br> Days</br></br></br></br></br></br></h1>";
 		//{"sysName": "sit-esxi.murdoch.edu.au", "storage": {"storageSizeGB": 3726.0, "storagePercUsed": 46}, "deviceID": "7", "mem": {"memPercUsed": 54, "ID": "52", "memSize": 36.0}, "OS": "vmware", "procPercPerCore": {"ID": "53", "value": [7, 77, 76, 23]}, "type": "performance", "upTimeDays": {"ID": "51", "value": 89.0}}
 		}
 		

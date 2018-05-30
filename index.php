@@ -113,6 +113,7 @@
             <script src="assets/js/gauge.min.js"></script>
             <script src="assets/js/propeller.min.js"></script>
             <script src="assets/js/pullData.js"></script>
+            <script src="assets/js/StandardPres.js"></script>
         <!-- /external scripts -->
 
         <!-- start random testing data (REMOVED)-->

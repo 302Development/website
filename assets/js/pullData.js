@@ -53,7 +53,7 @@ if (this.readyState == 4 && this.status == 200) {
 			gaugeElement.setAttribute('data-min-value' , "0");
 		}
 		} else {
-			alert("Error GageID:" + procPercCoreID + " Does Not Exist");
+			alert("MBSIN: Error GageID:" + inMbsID + " Does Not Exist");
 		}
 		
 		//Mbs out
@@ -88,7 +88,7 @@ if (this.readyState == 4 && this.status == 200) {
 			gaugeElement.setAttribute('data-min-value' , "0");
 		}
 		} else {
-			alert("Error GageID:" + procPercCoreID + " Does Not Exist");
+			alert("MBSOUT: Error GageID:" + outMbsID + " Does Not Exist");
 		}
 
 		
@@ -112,7 +112,7 @@ if (this.readyState == 4 && this.status == 200) {
 		gaugeElement.setAttribute('data-max-value' , "16");
 		gaugeElement.setAttribute('data-min-value' , "0");
 		} else {
-			alert("Error GageID:" + procPercCoreID + " Does Not Exist");
+			alert("AMP: Error GageID:" + AmpsID + " Does Not Exist");
 		}
 		
 		//watts gage
@@ -142,7 +142,7 @@ if (this.readyState == 4 && this.status == 200) {
 			gaugeElement.setAttribute('data-min-value' , "0");
 		}
 		} else {
-			alert("Error GageID:" + procPercCoreID + " Does Not Exist");
+			alert("WATT: Error GageID:" + WattsID + " Does Not Exist");
 		}
 		
 
@@ -176,7 +176,7 @@ if (this.readyState == 4 && this.status == 200) {
 		gaugeElement.setAttribute('data-font-units-size' , 10);
 		gaugeElement.setAttribute('data-font-numbers-size' , 10);
 		} else {
-			alert("Error GageID:" + procPercCoreID + " Does Not Exist");
+			alert("TEMP: Error GageID:" + tempID + " Does Not Exist");
 		}
 		
 		//Carbon Dioxide 
@@ -191,7 +191,7 @@ if (this.readyState == 4 && this.status == 200) {
 		gaugeElement.setAttribute('data-min-value' , "0");
 		gaugeElement.setAttribute('data-highlights' , '[{"from": 50000, "to": 60000, "color": "red"}]');
 		} else {
-			alert("Error GageID:" + procPercCoreID + " Does Not Exist");
+			alert("CO2: Error GageID:" + CO2ID + " Does Not Exist");
 		}
 		
 		//Toxic Volatile Organic Compunds 
@@ -204,7 +204,7 @@ if (this.readyState == 4 && this.status == 200) {
 		gaugeElement.setAttribute('data-max-value' , "3000");
 		gaugeElement.setAttribute('data-min-value' , "0");
 		} else {
-			alert("Error GageID:" + procPercCoreID + " Does Not Exist");
+			alert("TVOC: Error GageID:" + TVOCID + " Does Not Exist");
 		}
 		
 		
@@ -243,7 +243,7 @@ if (this.readyState == 4 && this.status == 200) {
 		gaugeElement.setAttribute('data-max-value' , "100");
 		gaugeElement.setAttribute('data-min-value' , "0");
 		} else {
-			alert("Error GageID:" + procPercCoreID + " Does Not Exist");
+			alert("STOR: Error GageID:" + storageID + " Does Not Exist");
 		}
 		
 		//Memeory Use
@@ -258,7 +258,7 @@ if (this.readyState == 4 && this.status == 200) {
 		gaugeElement.setAttribute('data-max-value' , "100");
 		gaugeElement.setAttribute('data-min-value' , "0");
 		} else {
-			alert("Error GageID:" + procPercCoreID + " Does Not Exist");
+			alert("MEM: Error GageID:" + memID + " Does Not Exist");
 		}
 		
 		//Up Time
@@ -266,7 +266,7 @@ if (this.readyState == 4 && this.status == 200) {
 		if (gaugeElement !==null){
 		gaugeElement.innerHTML ="<h1 text-align:centre; ></br></br></br></br> Up Time: </br></br>" + upTimeDays + " </br></br> Days</br></br></br></br></br></br></h1>";
 		} else {
-			alert("Error GageID:" + procPercCoreID + " Does Not Exist")
+			alert("UPTIME: Error GageID:" + upTimeDaysID + " Does Not Exist")
 		}
 		
 		//CPU usage
@@ -285,8 +285,9 @@ if (this.readyState == 4 && this.status == 200) {
 		gaugeElement.setAttribute('data-major-ticks' ,"0, 10,20,30,40,50,60,70,80,90,100" );
 		gaugeElement.setAttribute('data-max-value' , "100");
 		gaugeElement.setAttribute('data-min-value' , "0");
-		} else {
-			alert("Error GageID:" + procPercCoreID + " Does Not Exist");
+		}
+		else {
+			alert("CORE: Error GageID:" + procPercCoreID + " Does Not Exist");
 		}
 		
 		

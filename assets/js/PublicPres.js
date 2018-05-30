@@ -1,8 +1,15 @@
-for (var count = parseInt(document.getElementsByClassName("col-md-3 col-md-4 col-sm-6 col-xs-12").length); count > -1; count--){
+for (var count = 50; count > -1; count--){
 searchFor = "TileNo" + count;
 var tile = document.getElementById(searchFor);
+if (tile !==null) {
+
 var isVis = tile.getAttribute("presVisible");
+var isDis = tile.getAttribute("Visible");
 if (isVis === "0"){
     tile.style.display = "none";
+}
+if (isDis === "1"){
+    tile.style.display = "none";
+}
 }
 }

@@ -36,10 +36,10 @@
                     <div class="pmd-tabs pmd-tabs-bg">   
                         <div class="pmd-tab-active-bar"></div>
                         <ul role="tablist" class="nav nav-tabs">
-                            <li class="active" role="presentation"><a data-toggle="tab" role="tab" aria-controls="network" href="#network-fixed">Network</a></li>
-                            <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="performance" href="#performance-fixed">Performance</a></li>
-                            <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="power" href="#power-fixed">Power</a></li>
-                            <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="environment" href="#environment-fixed">Environment</a></li>
+                            <li class="active" role="presentation"><a data-toggle="tab" role="tab" aria-controls="network" href="#network-fixed" onclick=RequestAllJSON()>Network</a></li>
+                            <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="performance" href="#performance-fixed" onclick=RequestAllJSON()>Performance</a></li>
+                            <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="power" href="#power-fixed" onclick=RequestAllJSON()>Power</a></li>
+                            <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="environment" href="#environment-fixed" onclick=RequestAllJSON()>Environment</a></li>
                         </ul>
                     </div>
                 </div><!--/.navbar-header-->

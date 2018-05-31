@@ -12,6 +12,7 @@ if (this.readyState == 4 && this.status == 200) {
 
 	for ( count in DashboardData["devices"]){
 	
+	
 	if ((DashboardData["devices"][count]["type"]) === "network") {
 
 		//Mbs in
@@ -26,6 +27,9 @@ if (this.readyState == 4 && this.status == 200) {
 		if (gaugeElement !==null){
 		gaugeElement.setAttribute('data-title' , "Download");
 		gaugeElement.setAttribute('data-color-bar-progress' , "rgb(175,238,238)");
+		var gaugeElementSize = document.getElementById("TileNo"+ (inMbsID)).clientWidth;
+		gaugeElement.setAttribute('data-width' , (gaugeElementSize - 30).toString());
+		//alert(gaugeElementSize);
 		
 		if(inMbs <= 100) {
 			gaugeElement.setAttribute('data-value', inMbs);
@@ -59,6 +63,8 @@ if (this.readyState == 4 && this.status == 200) {
 		//Mbs out
 		var gaugeElement = document.getElementById(('Canvas') + (outMbsID));
 		if (gaugeElement !==null){
+		var gaugeElementSize = document.getElementById("TileNo"+ (outMbsID)).clientWidth;
+		gaugeElement.setAttribute('data-width' , (gaugeElementSize - 30).toString());
 		gaugeElement.setAttribute('data-title' , "Upload");
 		gaugeElement.setAttribute('data-color-bar-progress' , "rgb(221,160,221)");
 		
@@ -105,6 +111,8 @@ if (this.readyState == 4 && this.status == 200) {
 		//amps gage
 		var gaugeElement = document.getElementById(('Canvas') + (AmpsID));
 		if (gaugeElement !==null){
+		var gaugeElementSize = document.getElementById("TileNo"+ (AmpsID)).clientWidth;
+		gaugeElement.setAttribute('data-width' , (gaugeElementSize - 30).toString());
 		gaugeElement.setAttribute('data-value', Amps);
 		gaugeElement.setAttribute('data-units' , "amps");
 		gaugeElement.setAttribute('data-color-bar-progress' , "yellow");
@@ -119,6 +127,8 @@ if (this.readyState == 4 && this.status == 200) {
 		var gaugeElement = document.getElementById(('Canvas') + (WattsID));
 		if (gaugeElement !==null){
 		gaugeElement.setAttribute('data-color-bar-progress' , "black");
+		var gaugeElementSize = document.getElementById("TileNo"+ (WattsID)).clientWidth;
+		gaugeElement.setAttribute('data-width' , (gaugeElementSize - 30).toString());
 		if (Watts <= 1000) {
 			gaugeElement.setAttribute('data-value', Watts);
 			gaugeElement.setAttribute('data-units' , "watts");
@@ -163,6 +173,8 @@ if (this.readyState == 4 && this.status == 200) {
 		//Temp
 		var gaugeElement = document.getElementById(('Canvas') + (tempID));
 		if (gaugeElement !==null){
+		var gaugeElementSize = document.getElementById("TileNo"+ (tempID)).clientWidth;
+		gaugeElement.setAttribute('data-width' , (gaugeElementSize - 30).toString());
 		gaugeElement.setAttribute('data-value', temp);
 		gaugeElement.setAttribute('data-units' , "°C");
 		gaugeElement.setAttribute('data-color-bar-progress' , "red");
@@ -182,6 +194,8 @@ if (this.readyState == 4 && this.status == 200) {
 		//Carbon Dioxide 
 		var gaugeElement = document.getElementById(('Canvas') + (CO2ID));
 		if (gaugeElement !==null){
+		var gaugeElementSize = document.getElementById("TileNo"+ (CO2ID)).clientWidth;
+		gaugeElement.setAttribute('data-width' , (gaugeElementSize - 30).toString());
 		gaugeElement.setAttribute('data-value', CO2);
 		gaugeElement.setAttribute('data-units' , "PPM");
 		gaugeElement.setAttribute('data-color-bar-progress' , "rgb(255,165,0)");
@@ -197,6 +211,8 @@ if (this.readyState == 4 && this.status == 200) {
 		//Toxic Volatile Organic Compunds 
 		var gaugeElement = document.getElementById(('Canvas') + (TVOCID));
 		if (gaugeElement !==null){
+		var gaugeElementSize = document.getElementById("TileNo"+ (TVOCID)).clientWidth;
+		gaugeElement.setAttribute('data-width' , (gaugeElementSize - 30).toString());
 		gaugeElement.setAttribute('data-value', TVOC);
 		gaugeElement.setAttribute('data-units' , "PPM");
 		gaugeElement.setAttribute('data-title' , "TVOC");
@@ -228,6 +244,8 @@ if (this.readyState == 4 && this.status == 200) {
 		//Storage Use
 		var gaugeElement = document.getElementById(('Canvas') + (storageID));
 		if (gaugeElement !==null){
+		var gaugeElementSize = document.getElementById("TileNo"+ (storageID)).clientWidth;
+		gaugeElement.setAttribute('data-width' , (gaugeElementSize - 30).toString());
 		if (storageSizeGB <=1000){
 			var used = (storageSizeGB /100) * storagePercUsed;
 			var cardTitleStorage = parseFloat(used).toFixed(2) + "/" + storageSizeGB + " GB";
@@ -249,6 +267,8 @@ if (this.readyState == 4 && this.status == 200) {
 		//Memeory Use
 		var gaugeElement = document.getElementById(('Canvas') + (memID));
 		if (gaugeElement !==null){
+		var gaugeElementSize = document.getElementById("TileNo"+ (memID)).clientWidth;
+		gaugeElement.setAttribute('data-width' , (gaugeElementSize - 30).toString());
 		var used = (memSizeGB /100) * memPercUsed;
 		var cardTitlemem = parseFloat(used).toFixed(2) + "/" + memSizeGB + " GB";
 		gaugeElement.setAttribute('data-value', memPercUsed);
@@ -262,9 +282,14 @@ if (this.readyState == 4 && this.status == 200) {
 		}
 		
 		//Up Time
+		//var gaugeElementSize = document.getElementById("TileNo"+ (memID)).clientWidth;
+		var gaugeElementSize = document.getElementById("TileNo"+ (memID)).clientHeight;
 		var gaugeElement = document.getElementById(('CanvasGage') + (upTimeDaysID));
+		
 		if (gaugeElement !==null){
-		gaugeElement.innerHTML ="<h1 text-align:centre; ></br></br></br></br> Up Time: </br></br>" + upTimeDays + " </br></br> Days</br></br></br></br></br></br></h1>";
+		//gaugeElement.style.width(((gaugeElementSize).toString()+"px"));
+		gaugeElement.innerHTML ="<h1> <br><br><br><br><br><br><br> Up Time: " + upTimeDays + " </h1>";
+		gaugeElement.style.height=(((gaugeElementSize - 180).toString()+"px"));
 		} else {
 			alert("UPTIME: Error GageID:" + upTimeDaysID + " Does Not Exist")
 		}
@@ -272,6 +297,8 @@ if (this.readyState == 4 && this.status == 200) {
 		//CPU usage
 		var gaugeElement = document.getElementById(('Canvas') + (procPercCoreID));
 		if (gaugeElement !==null){
+		var gaugeElementSize = document.getElementById("TileNo"+ (procPercCoreID)).clientWidth;
+		gaugeElement.setAttribute('data-width' , (gaugeElementSize - 30).toString());
 		CPUStr = "";
 		avgProc = 0;
 		for (count = 0; count < (procPercCore.length); count++){

@@ -101,7 +101,7 @@
 						<ul role="tablist" class="nav nav-tabs">
 							<li class="active" role="presentation"><a data-toggle="tab" role="tab" aria-controls="layout" href="#layout-fixed">Dashboard Layout</a></li>
 							<li role="presentation"><a data-toggle="tab" role="tab" aria-controls="status" href="#status-fixed">Status</a></li>
-							<li role="presentation"><a data-toggle="tab" role="tab" aria-controls="presentation" href="#presentation-fixed">Public Presentation</a></li>
+							<li role="presentation"><a data-toggle="tab" role="tab" aria-controls="presentation" href="#presentation-fixed" onclick=RequestAllJSON()>Public Presentation</a></li>
 						</ul>
 					</div>
 				</div><!--/.navbar-header-->

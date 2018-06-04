@@ -95,7 +95,7 @@
 			<div class="container-fluid">
 				<img class="brand-image img-responsive pull-left" src="/assets/images/murdoch-logo-vert-white.svg"/>
 				<div class="navbar-header">
-					<a href="javascript:void(0);" class="navbar-brand navbar-brand-custome">Dashboard Configuration</a>
+					<a href="javascript:void(0);" class="navbar-brand navbar-brand-custome" style="font-size: 160%">Dashboard Configuration</a>
 					<div class="pmd-tabs pmd-tabs-bg">   
 						<div class="pmd-tab-active-bar"></div>
 						<ul role="tablist" class="nav nav-tabs">
@@ -111,7 +111,7 @@
 
 	<!-- start page content -->
 	<div class="component-box">
-			<div class="col-md-12">
+			<div class="col-md-12" style="margin-bottom: 10%;">
 				<div class="tab-content">
 
 				<!-- start layout tab -->

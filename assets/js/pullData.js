@@ -159,7 +159,7 @@ $(document).ready(function() {
                             gaugeElement.setAttribute('data-min-value', "0");
 
                             if (OS != null && OS.length > 0) {
-                                gaugeElement.parentElement.parentElement.parentElement.children[0].children[1].innerText += (" (" + OS + ")");
+                                gaugeElement.parentElement.parentElement.parentElement.children[0].children[1].innerText =  gaugeElement.parentElement.parentElement.parentElement.children[0].children[1].innerText + (" (" + OS + ")");
                             }
                         }
 
@@ -173,7 +173,7 @@ $(document).ready(function() {
                             }
 
                             gaugeElement.parentElement.innerHTML =`
-                                <div id="Canvas${upTimeDaysID}" style="width: 400px; height: 400px;">
+                                <div id="Canvas${upTimeDaysID}" style="width: 380px; height: 380px;">
                                     <div class="center-text-card">
                                         <h1>Uptime:<br/>${upTimeDays} days</h1>
                                     </div>
@@ -190,7 +190,7 @@ $(document).ready(function() {
                             }
 
                             gaugeElement.parentElement.innerHTML =`
-                                <div id="Canvas${procPercPerCoreID}" style="width: 400px; height: 400px;">
+                                <div id="Canvas${procPercPerCoreID}" style="width: 380px; height: 380px;">
                                     <div class="center-text-card">
                                         <h1>Processes Per Core:<br/>${procPercPerCore}</h1>
                                     </div>

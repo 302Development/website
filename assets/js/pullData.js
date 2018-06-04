@@ -7,8 +7,7 @@ $(document).ready(function() {
             if (this.readyState == 4 && this.status == 200) {
 
                 DashboardData = JSON.parse(this.responseText);
-
-                count = 0;
+                var count = 0;
 
                 console.log(DashboardData["devices"]);
 
@@ -104,7 +103,7 @@ $(document).ready(function() {
                         var storagePercUsed = parseInt(data["storage"]["storagePercUsed"]);
                         var storageID = (data["storage"]["ID"]);
                         //alert(storageID); parse
-
+                        var OS = data["sysName"];
 
                         var memSizeGB = parseFloat(data["mem"]["memSize"]);
                         var memPercUsed = parseFloat(data["mem"]["memPercUsed"]);
@@ -140,6 +139,10 @@ $(document).ready(function() {
                             gaugeElement.setAttribute('data-major-ticks', "0,10,20,30,40,50,60,70,80,90,100");
                             gaugeElement.setAttribute('data-max-value', "100");
                             gaugeElement.setAttribute('data-min-value', "0");
+
+                            if (OS != null && OS.length > 0) {
+                                gaugeElement.parentElement.parentElement.parentElement.children[0].children[1].innerText += (" (" + OS + ")");
+                            }
                         }
 
 
@@ -154,12 +157,21 @@ $(document).ready(function() {
                             gaugeElement.setAttribute('data-major-ticks', "0,10,20,30,40,50,60,70,80,90,100");
                             gaugeElement.setAttribute('data-max-value', "100");
                             gaugeElement.setAttribute('data-min-value', "0");
+
+                            if (OS != null && OS.length > 0) {
+                                gaugeElement.parentElement.parentElement.parentElement.children[0].children[1].innerText += (" (" + OS + ")");
+                            }
                         }
 
                         
                         var gaugeElement = document.getElementById(('Canvas') + (upTimeDaysID));
                         if (gaugeElement != null) {
                             gaugeElement.setAttribute('width', gaugeElement.clientWidth);
+
+                            if (OS != null && OS.length > 0) {
+                                gaugeElement.parentElement.parentElement.parentElement.children[0].children[1].innerText += (" (" + OS + ")");
+                            }
+
                             gaugeElement.parentElement.innerHTML =`
                                 <div id="Canvas${upTimeDaysID}" style="width: 400px; height: 400px;">
                                     <div class="center-text-card">
@@ -172,6 +184,11 @@ $(document).ready(function() {
                         var gaugeElement = document.getElementById(('Canvas') + (procPercPerCoreID));
                         if (gaugeElement != null) {
                             gaugeElement.setAttribute('width', gaugeElement.clientWidth);
+
+                            if (OS != null && OS.length > 0) {
+                                gaugeElement.parentElement.parentElement.parentElement.children[0].children[1].innerText += (" (" + OS + ")");
+                            }
+
                             gaugeElement.parentElement.innerHTML =`
                                 <div id="Canvas${procPercPerCoreID}" style="width: 400px; height: 400px;">
                                     <div class="center-text-card">

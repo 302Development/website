@@ -47,6 +47,7 @@
 		switch ($_POST['action']) {
 			case 'Update':
 				Database::updateCard($_POST);
+				exit;
 				break;
 
 			case 'Delete':
@@ -58,7 +59,7 @@
 				break;
 
 			 default:
-			 	adminError("Unsupported action.");
+			 	//adminError("Unsupported action.");
 				break;
 		}
 	}
@@ -83,13 +84,16 @@
 		
 		<!-- Propeller theme css-->
 		<link rel="stylesheet" type="text/css" href="/assets/css/propeller-theme.css" />
-	
+
 		<!--Fonts-->
 		<link href="/assets/fonts/roboto/" rel="stylesheet">
+
+		<script src="/assets/js/jquery-1.12.2.min.js"></script>
 	</head>
 
 	<body>
-
+		<div id="updateNotification">
+		</div>
 	<!-- start nav -->
 		<nav class="navbar navbar-inverse navbar-static-top pmd-z-depth">
 			<div class="container-fluid">
@@ -353,11 +357,7 @@
 		<script src="/assets/js/propeller.min.js"></script>
 		<script src="/assets/js/propeller.min.js"></script>
 		<script src="/assets/js/pullData.js"></script>
-		<script>
-$(document).ready(function() {
-    $('#example').DataTable();
-} );
-		</script>
+		<script src="/assets/js/notification.js"></script>
 	<!-- /external scripts -->
 
 <!-- end scripts -->

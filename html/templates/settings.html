@@ -1,6 +1,6 @@
 <div class="card" style="width: 50%;">
 	<h2>Card #{{count}}</h3>
-	<form action="#" method="post">
+	<form id="form-{{count}}-{{id}}" action="#" method="post">
 		<input type="hidden" name="id" value="{{id}}">
 		<ul class="list-group list-group-flush">
 			<li class="list-group-item">
@@ -47,10 +47,28 @@
 			</li>
 
 			<li class="list-group-item">
-				<input type="submit" class="btn btn-primary" name="action" value="Update" />
-				<input type="submit" class="btn btn-primary" name="action" value="Delete" />
+				<input id="update-{{count}}-{{id}}" type="submit" class="btn btn-primary" name="action" value="Update" />
+				<input id="delete-{{count}}-{{id}}" type="submit" class="btn btn-primary" name="action" value="Delete" />
 			</li>
-		</ul>		
+		</ul>	
 	</form>
+	<script type="text/javascript">
+		$("#form-{{count}}-{{id}}").submit(function(e) {
+			var request = $("#form-{{count}}-{{id}}").serialize() + "&action=" + document.activeElement.value;	
+			console.log(request);
+
+			$.ajax({
+				type: "POST",
+				url: "/admin/",
+				data: request, // serializes the form's elements.
+				success: function(data) {
+					showUpdate(data); // show response from the php script.
+				}
+			});
+
+			if (document.activeElement.value == "Update")
+				e.preventDefault();
+		});
+	</script>
 </div>
 <br />
